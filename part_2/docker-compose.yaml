@@ -1,0 +1,23 @@
+version: '3'
+services:
+  flask_app_1:
+    build: ./flask1
+    ports:
+      - "5003:5000"
+    volumes:
+      - ./flask1:/app
+  flask_app_2:
+    build: ./flask2
+    ports:
+      - "5002:5000"
+    volumes:
+      - ./flask2:/app
+
+# services - build: path where the Dockerfile lies
+# services - ports: expose ports
+# services - volumes: changes made in flask1 / flask2 will automatically be pushed into the app folder inside the Docker folder
+
+# Spinning up and running images command: docker-compose up --build
+# Running Docker command: docker-compose up -d
+# To see the apps Docker Compose created command: docker-compose ps
+# Stop app command: docker-compose down
